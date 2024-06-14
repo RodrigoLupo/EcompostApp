@@ -4,15 +4,22 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp">
+    <TextView
+        android:id="@+id/name_provee"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nombre"
+        android:textSize="18sp" />
+
 
     <TextView
         android:id="@+id/textViewPuntos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/name_provee"
+        android:layout_marginTop="18dp"
         android:text="Puntos acumulados: 0"
         android:textSize="18sp" />
-
-
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewProductos"

@@ -31,7 +31,7 @@ class ProductoAdapter(
         holder.puntosTextView.text = "Puntos necesarios: ${producto.puntos_requeridos}"
         Log.d("ProductoAdapter", "Cargando imagen desde: ${producto.imagen}")
         Glide.with(context)
-            .load("http://192.168.142.156:8000/${producto.imagen}")
+            .load("http://192.168.0.104:8000/${producto.imagen}")
             //.placeholder(R.drawable.placeholder) // Imagen de placeholder
             //.error(R.drawable.error) // Imagen de error
             .into(holder.imagenImageView)

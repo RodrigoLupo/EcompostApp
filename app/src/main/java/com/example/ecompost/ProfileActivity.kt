@@ -20,7 +20,7 @@ class ProfileActivity : AppCompatActivity() {
         val token = intent.getStringExtra("token") ?: ""
         val apiService = RetrofitClient.instance.create(ApiService::class.java)
         val call = apiService.getProfile("Bearer $token")
-
+        val txtnombre = findViewById<TextView>(R.id.name_provee)
         val textViewPuntos: TextView = findViewById(R.id.textViewPuntos)
         val recyclerViewProductos: RecyclerView = findViewById(R.id.recyclerViewProductos)
         recyclerViewProductos.layoutManager = LinearLayoutManager(this)
@@ -29,9 +29,10 @@ class ProfileActivity : AppCompatActivity() {
             override fun onResponse(call: Call<ProfileResponse>, response: Response<ProfileResponse>) {
                 if (response.isSuccessful) {
                     val profile = response.body()
+                    val username = profile?.user_name?.capitalizeFirstLetter()?:""
                     val puntosAcumulados = profile?.proveedor?.puntos_acumulados ?: 0
                     val productos = profile?.productos ?: emptyList()
-
+                    txtnombre.text = username
                     textViewPuntos.text = "Puntos acumulados: $puntosAcumulados"
                     val adapter = ProductoAdapter(this@ProfileActivity, productos)
                     recyclerViewProductos.adapter = adapter
@@ -44,5 +45,12 @@ class ProfileActivity : AppCompatActivity() {
                 Toast.makeText(this@ProfileActivity, "Error al obtener perfil: ${t.message}", Toast.LENGTH_SHORT).show()
             }
         })
+    }
+    fun String.capitalizeFirstLetter(): String {
+        return if (this.isNotEmpty()) {
+            this[0].uppercaseChar() + this.substring(1)
+        } else {
+            this
+        }
     }
 }
