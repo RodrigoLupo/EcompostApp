@@ -2,4 +2,15 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="gris_oscuro">#CACACA</color>
+    <color name="amarillo_abeja">#FBC80E</color>
+    <color name="gris_claro">#FFFFFF</color>
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryVariant">#3700B3</color>
+    <color name="colorSecondary">#03DAC6</color>
+    <color name="colorSecondaryVariant">#018786</color>
+    <color name="amarillo">#FFFF00</color>
+    <color name="colorBackground">#F2F2F2</color>
+    <color name="colorAccent">#0048FF</color>
+    <color name="white_translucent">#1AFFFFFF</color>
 </resources>

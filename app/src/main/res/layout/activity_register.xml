@@ -2,17 +2,37 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main"
     xmlns:tools="http://schemas.android.com/tools"
     android:padding="16dp"
+    android:layout_gravity="center"
     tools:context=".RegisterActivity">
+
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="203dp"
+        android:layout_height="177dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="86dp"
+        android:layout_marginTop="104dp"
+        android:layout_marginEnd="96dp"
+        android:src="@drawable/logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/username"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Username"
-        android:layout_marginTop="20dp"/>
+        android:layout_below="@+id/logo"
+        android:layout_marginTop="28dp"
+        android:textColorHint="@color/black"
+        android:hint="Username" />
 
     <EditText
         android:id="@+id/password"
@@ -21,15 +41,17 @@
         android:hint="Password"
         android:inputType="textPassword"
         android:layout_below="@id/username"
+        android:textColorHint="@color/black"
         android:layout_marginTop="20dp"/>
 
     <Button
         android:id="@+id/register"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Register"
         android:layout_below="@id/password"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="20dp"
+        android:background="@drawable/boton_circular"/>
 
 </RelativeLayout>
