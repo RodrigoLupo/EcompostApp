@@ -1,0 +1,22 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Fondo exterior (amarillo) -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/amarillo_abeja"/>
+            <corners android:radius="100dp"/>
+        </shape>
+    </item>
+    <!-- Fondo interior (blanco) -->
+    <item android:left="10dp" android:top="10dp" android:right="10dp" android:bottom="10dp">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/gris_claro"/>
+            <corners android:radius="100dp"/>
+        </shape>
+    </item>
+    <item android:left="10dp" android:top="10dp" android:right="10dp" android:bottom="10dp">
+        <shape android:shape="rectangle">
+            <solid android:color="@android:color/white"/>
+            <corners android:radius="100dp"/>
+        </shape>
+    </item>
+</layer-list>
