@@ -22,4 +22,6 @@ interface ApiService {
 
     @GET("canjes_por_proveedor/")
     fun getCanjesPorProveedor(@Header("Authorization") token: String): Call<List<Transaccion>>
+    @GET("kilos_intercambiados")
+    fun getKilosIntercambiados(@Header("Authorization") authToken: String): Call<List<KilosIntercambiadosResponse>>
 }

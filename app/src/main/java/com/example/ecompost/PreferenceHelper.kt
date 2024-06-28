@@ -9,6 +9,8 @@ object PreferenceHelper {
     private const val ACCESS_TOKEN = "AccessToken"
     private const val REFRESH_TOKEN = "RefreshToken"
     private const val IS_LOGGED_IN = "IsLoggedIn"
+    private const val USER_ID = "user_id"
+    private const val USER_NAME = "user_name"
 
     fun getSharedPreferences(context: Context): SharedPreferences {
         return context.getSharedPreferences(PREFERENCE_NAME, Context.MODE_PRIVATE)
@@ -30,9 +32,6 @@ object PreferenceHelper {
         editor.apply()
     }
 
-    fun getRefreshToken(context: Context): String? {
-        return getSharedPreferences(context).getString(REFRESH_TOKEN, null)
-    }
 
     fun setLoggedIn(context: Context, loggedIn: Boolean) {
         val editor = getSharedPreferences(context).edit()
@@ -40,13 +39,4 @@ object PreferenceHelper {
         editor.apply()
     }
 
-    fun isLoggedIn(context: Context): Boolean {
-        return getSharedPreferences(context).getBoolean(IS_LOGGED_IN, false)
-    }
-
-    fun clearSession(context: Context) {
-        val editor = getSharedPreferences(context).edit()
-        editor.clear()
-        editor.apply()
-    }
 }
