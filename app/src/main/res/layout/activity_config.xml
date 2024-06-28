@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+    tools:context=".ConfigActivity">
+
+    <!-- Encabezado -->
+    <android.view.View
+        android:id="@+id/topRectangle"
+        android:layout_width="match_parent"
+        android:layout_height="165dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/rounded_rectangle" />
+
+    <!-- ImageView para la imagen -->
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imageView"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_below="@id/topRectangle"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="-98dp"
+        android:layout_marginEnd="99dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/usuario"/>
+
+    <!-- Nombre del proveedor -->
+    <TextView
+        android:id="@+id/name_provee"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="76dp"
+        android:text="Nombre del Proveedor"
+        android:textColor="@android:color/black"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <!-- Contenedor de tarjetas -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_below="@id/imageView"
+        android:layout_marginTop="20dp">
+
+        <!-- CardView 1 - Cambiar Nombre -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            app:cardCornerRadius="8dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/ic_username"
+                    android:contentDescription="Icono Cambiar Nombre"
+                    android:padding="12dp"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Cambiar Nombre"
+                    android:textSize="18sp"
+                    android:textColor="@android:color/black"
+                    android:padding="16dp"/>
+
+                <ImageView
+                    android:id="@+id/arrow_cambiar_nombre"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_arrow_forward"
+                    android:contentDescription="Flecha Cambiar Nombre"
+                    android:padding="12dp"
+                    android:onClick="onClickCambiarNombre" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <!-- CardView 2 - Cambiar Contraseña -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            app:cardCornerRadius="8dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/ic_password"
+                    android:contentDescription="Icono Cambiar Contraseña"
+                    android:padding="12dp"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Cambiar Contraseña"
+                    android:textSize="18sp"
+                    android:textColor="@android:color/black"
+                    android:padding="16dp"/>
+
+                <ImageView
+                    android:id="@+id/arrow_cambiar_contrasena"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_arrow_forward"
+                    android:contentDescription="Flecha Cambiar Contraseña"
+                    android:padding="12dp"
+                    android:onClick="onClickCambiarContraseña" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+    <!-- Menú inferior -->
+    <include
+        android:id="@+id/bottom_menu"
+        layout="@layout/bottom_menu"
+        android:layout_alignParentBottom="true" />
+
+</RelativeLayout>

@@ -11,6 +11,3 @@ data class Proveedor(
     val user: Int,
     val puntos_acumulados: Int
 )
-
-
-

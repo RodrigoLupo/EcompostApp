@@ -31,9 +31,15 @@ class LoginActivity : AppCompatActivity() {
             call.enqueue(object : Callback<TokenResponse> {
                 override fun onResponse(call: Call<TokenResponse>, response: Response<TokenResponse>) {
                     if (response.isSuccessful) {
-                        val token = response.body()?.access ?: ""
+                        val tokenResponse = response.body()
+                        val accessToken = tokenResponse?.access ?: ""
+                        val refreshToken = tokenResponse?.refresh ?: ""
+
+                        PreferenceHelper.saveAccessToken(this@LoginActivity, accessToken)
+                        PreferenceHelper.saveRefreshToken(this@LoginActivity, refreshToken)
+                        PreferenceHelper.setLoggedIn(this@LoginActivity, true)
+
                         val intent = Intent(this@LoginActivity, ProfileActivity::class.java)
-                        intent.putExtra("token", token)
                         startActivity(intent)
                         finish()
                     } else {

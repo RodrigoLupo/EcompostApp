@@ -19,4 +19,7 @@ interface ApiService {
 
     @POST("canjear_puntos/")
     fun canjearPuntos(@Header("Authorization") token: String, @Body request: CanjeRequest): Call<CanjeResponse>
+
+    @GET("canjes_por_proveedor/")
+    fun getCanjesPorProveedor(@Header("Authorization") token: String): Call<List<Transaccion>>
 }

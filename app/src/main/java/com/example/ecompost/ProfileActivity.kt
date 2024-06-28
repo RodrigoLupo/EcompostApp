@@ -1,6 +1,8 @@
 package com.example.ecompost
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -17,14 +19,24 @@ class ProfileActivity : AppCompatActivity() {
     private lateinit var recyclerViewProductos: RecyclerView
     private lateinit var txtnombre: TextView
     private lateinit var textViewPuntos: TextView
-    private lateinit var textViewProveedorId: TextView
     private lateinit var token: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)
 
-        token = intent.getStringExtra("token") ?: ""
+        // Recupera el token desde el intent o el almacenamiento compartido
+        token = intent.getStringExtra("token") ?: PreferenceHelper.getAccessToken(this).orEmpty()
+
+        if (token.isEmpty()) {
+            Toast.makeText(this, "No se encontró token. Por favor inicie sesión.", Toast.LENGTH_SHORT).show()
+            // Redirigir al usuario a la pantalla de inicio de sesión
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+            finish()
+            return
+        }
+
         swipeRefreshLayout = findViewById(R.id.swipeRefreshLayout)
         recyclerViewProductos = findViewById(R.id.recyclerViewProductos)
         txtnombre = findViewById(R.id.name_provee)
@@ -33,6 +45,22 @@ class ProfileActivity : AppCompatActivity() {
 
         swipeRefreshLayout.setOnRefreshListener {
             fetchProfile()
+        }
+
+        val btnHome = findViewById<ImageButton>(R.id.btnHome)
+        val btnAjustes = findViewById<ImageButton>(R.id.btnAjustes)
+        val btnEstadisticas = findViewById<ImageButton>(R.id.btnEstadisticas)
+
+        btnHome.setOnClickListener {
+            Toast.makeText(this, "Ya estás en la pantalla de perfil", Toast.LENGTH_SHORT).show()
+        }
+
+        btnAjustes.setOnClickListener {
+            startActivity(Intent(this, ConfigActivity::class.java))
+        }
+
+        btnEstadisticas.setOnClickListener {
+            startActivity(Intent(this, StatsActivity::class.java))
         }
 
         fetchProfile()
